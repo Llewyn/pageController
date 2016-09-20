@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="nl" data-ng-app="nameApp" data-ng-controller="pageController">
+	<head>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta charset="utf-8">
+	    <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+	    <meta name="description" content="{{pageData.meta_description}}">
+	    <meta name="description" content="{{pageData.meta_keywords}}">
+	    <meta name="author" content="David Verelst">
+
+	    <title>Name site - {{title | capitalize}}</title>
+
+	    <base href="/"><!-- This specifies the base URL/target for all relative URLs in a document -->
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+	        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]--> 
+
+	    <!-- FONTS -->
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    	<!-- JAVASCRIPT THIRD PARTIES -->  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js"></script>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-resource.min.js"></script>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-sanitize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.4/ui-bootstrap-tpls.min.js"></script><!-- so bootstrap can be used without jquery -->
+        
+        <!-- JAVASCRIPT MAIN APP -->  
+        <script src="js/mainApp/nameApp.js"></script>
+        <script src="js/mainApp/routingConfiguration.js"></script>
+        <script src="js/mainApp/routingController.js"></script>    
+
+        <!-- JAVASCRIPT COMPONENTS -->
+        <!-- For the content of the pages -->
+        <script src="js/components/page/pageController.js"></script>
+        <script src="js/components/page/pageService.js"></script>
+        <!-- For the languages of the pages -->
+        <script src="js/components/language/languageService.js"></script>
+       
+	</head>
+	<body>  
+    
+    	<!-- Language buttons -->
+		<img src="img/btn_nl.png" ng-click="changeLanguage('nl')">
+		<img src="img/btn_uk.png" ng-click="changeLanguage('uk')">
+		<img src="img/btn_fr.png" ng-click="changeLanguage('fr')">
+
+		<!-- Menu -->
+		<div class="row" data-ng-controller="routingCtrl">
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-ng-init="navCollapsed = true" data-ng-click="navCollapsed = !navCollapsed">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" collapse="navCollapsed">
+					<ul class="nav navbar-nav">
+						<li><a class="menuBtn" data-ng-class="{'active' : isActive('/home')}" href="home">Home</a></li>
+						<li><a class="menuBtn" data-ng-class="{'active' : isActive('/gallerij')}" href="gallerij">Gallerij</a></li>
+						<li><a class="menuBtn" data-ng-class="{'active' : isActive('/over')}" href="over">Over</a></li>
+						<li><a class="menuBtn" data-ng-class="{'active' : isActive('/contact')}" href="contact">Contact</a></li> 
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<!-- Page content -->
+		<div class="row">
+			<!-- Left margin -->
+			<div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+			<!-- Content itself -->
+			<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+				<!-- View -->
+				<div class="view" data-ng-view autoscroll="true"></div>
+			</div>
+			<!-- Right margin -->
+			<div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+		</div>
+
+		<!-- FOOTER -->
+		<div class="footer">
+			<span class="footerCopyright pull-left">&copy; 2016 - Name App</span>
+			&nbsp;&nbsp;<span translate="content"></span>
+            <div class="pull-right socialMedia" style="margin: 0px"></div>	
+		</div>
+    
+	</body>
+</html>
