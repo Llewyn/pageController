@@ -14,7 +14,7 @@
 		// query = you get an array back [...]
 		// get = you get an object back {...}
 		function getPage(page) {
-			return $resource('./php/page/getPage.php', { pageTitle: page }).get();
+			return $resource('../../../php/page/getPage.php', { pageTitle: page }).get();
 		}
 
 	}
