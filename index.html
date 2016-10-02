@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl" data-ng-app="nameApp" data-ng-controller="pageController">
+<html lang="nl" data-ng-app="nameApp">
 	<head>
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta charset="utf-8">
@@ -28,7 +28,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js"></script>  
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-resource.min.js"></script>  
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-sanitize.min.js"></script>
+        <!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-sanitize.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.4/ui-bootstrap-tpls.min.js"></script><!-- so bootstrap can be used without jquery -->
         
         <!-- JAVASCRIPT MAIN APP -->  
@@ -41,15 +41,21 @@
         <script src="js/components/page/pageController.js"></script>
         <script src="js/components/page/pageService.js"></script>
         <!-- For the languages of the pages -->
+        <!-- // <script src="js/components/language/languageController.js"></script> -->
         <script src="js/components/language/languageService.js"></script>
+        <script src="js/components/language/languageDirective.js"></script>
+        <!-- For contact (redirect and submitting form) -->
+        <script src="js/components/contact/contactController.js"></script>
        
 	</head>
 	<body>  
     
     	<!-- Language buttons -->
-		<img src="img/btn_nl.png" ng-click="changeLanguage('nl')">
+<!-- 		<img src="img/btn_nl.png" ng-click="changeLanguage('nl')">
 		<img src="img/btn_uk.png" ng-click="changeLanguage('uk')">
-		<img src="img/btn_fr.png" ng-click="changeLanguage('fr')">
+		<img src="img/btn_fr.png" ng-click="changeLanguage('fr')"> -->
+
+		<language></language>
 
 		<!-- Menu -->
 		<div class="row" data-ng-controller="routingCtrl">
@@ -89,7 +95,7 @@
 		</div>
 
 		<!-- FOOTER -->
-		<div class="footer">
+		<div class="footer navbar-fixed-bottom">
 			<span class="footerCopyright pull-left">&copy; 2016 - Name App</span>
 			&nbsp;&nbsp;<span translate="content"></span>
             <div class="pull-right socialMedia" style="margin: 0px"></div>	

@@ -6,8 +6,13 @@
 
 			$routeProvider
 
+				.when('/contact', {
+						templateUrl: 'partials/contact.html',
+						controller: 'contactController'
+					})
 				.when('/:page', {
-						templateUrl: 'partials/templates/pageTemplate.html'
+						templateUrl: 'partials/templates/pageTemplate.html',
+						controller: 'pageController'
 					})
 				.otherwise(
 					{ 
